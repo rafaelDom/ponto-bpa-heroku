@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exportar Marcacoes</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="logOut">
+        <a href="marcarPonto"><i class="fa fa-home fa-2x"></i></a>
+         {{ user.get_username }}   <a href="/accounts/logout">Log Out</a>
+    </div>
+    <h1>Exportar Marcações de Ponto</h1>
+        <form id="visualizarMarcacoes" action="filtro_export_xls" method="post">
+            <div id="filtros">
+                {% csrf_token %}
+                {{ meu_form }}
+                Data Início: <input id="dataInicio" name="dataInicio" type="date">
+                Data Fim: <input id="dataFim" name="dataFim" type="date">
+
+                <button type="submit">Exportar</button>
+            </div>
+        </form>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Marcar Ponto</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="logOut">
+     {{ user.get_username }}   <a href="/accounts/logout">Log Out</a>
+    </div>
+    <form method="post" id="formMarcarPonto">
+        {% csrf_token %}
+        <div id="relogio">
+            <br>
+            <p>Marcar Ponto Auto.</p>
+            <a href="confirmarMarcacao"><i class="fas fa-clock fa-3x"></i></a>
+            <br>
+            <p>Marcar Ponto Manual</p>
+            <a href="pontoManual"><i class="fa fa-clipboard fa-3x"></i></a>
+            <br>
+            <p>Visualizar Ponto</p>
+            <a href="visualizarMarcacoes"><i class="fa fa-table fa-3x"></i></a>
+             {% if user.get_username == "bpa" %}
+            <p>Exportar Ponto</p>
+            <a href="pageExportExcel"><i class="fa fa-file fa-3x"></i></a>
+             {% endif %}
+
+        </div>
+    </form>
+</body>
+</html>

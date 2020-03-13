@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ponto Manual</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="logOut">
+            <a href="marcarPonto"><i class="fa fa-home fa-2x"></i></a>
+             {{ user.get_username }}   <a href="/accounts/logout">Log Out</a>
+        </div>
+        <h1>Ponto Manual</h1>
+        <form id="marcacaoManual" action="marcacaoManual" method="post">
+            {% csrf_token %}
+            Data:
+            <input id="dataMarcacao" name="dataMarcacao" type="date">
+            <br>
+             Horário:
+             <input id="horarioMarcacao" name="horarioMarcacao" type="time">
+            <br>
+            <button type="submit">Confirmar</button>
+            <a href="marcarPonto"><button type="button" id="btnVoltar">Voltar</button></a>
+         </form>
+
+</body>
+</html>

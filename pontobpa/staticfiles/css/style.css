@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta|Quicksand');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Mobile First */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    line-height: 1;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+body{
+    padding: 10% 15%;
+    color: black;
+    font-family: 'Mukta', sans-serif;
+    line-height: 1;
+
+}
+
+#formMarcarPonto p{
+    color: black;
+    padding-top: 10px;
+ }
+#formLogin, #confirmarMarcacao, #formMarcarPonto{
+    margin: 0 auto;
+}
+#id_password{
+    margin-left: 10px;
+}
+h1 {
+    padding-top: 5%;
+    font-size: 2em;
+    margin-top: 15px;
+    /* border: 1px solid white; */
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+form{
+    margin-top: 40px;
+    border: none;
+    font-size: 1.3em;
+    text-align: center;
+    line-height: 1;
+}
+form input {
+    height: 40px;
+    font-size: 1em;
+    background: transparent;
+    border-bottom: 1px;
+    border-bottom-color: black;
+    border: none;
+    outline: none;
+
+}
+#id_username, #id_password {
+    border-bottom: 1px black solid;
+}
+
+label{
+   text-color: black;
+}
+
+
+form p {
+    margin-top: 10px;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+form p:first-of-type {
+    color: #c67187;
+}
+
+form p a {
+    text-decoration: none;
+    color: #abbecb;
+}
+
+form button {
+    width: 110px;
+    margin: 0 auto;
+    height: 55px;
+    margin-top: 50px;
+    background-color:black;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid black;
+     font-size: 0.7em;
+
+
+}
+
+form button a{
+    text-decoration: none !important;
+    color: white;
+}
+button:focus{
+  outline-style: none;
+}
+
+/*css para o arquivo marcar ponto*/
+.logOut{
+    text-align: right;
+}
+#relogio{
+    text-align: center;
+}
+#relogio a:link {
+    text-decoration: none !important;
+}
+#relogio a {
+    color: inherit;
+      padding: 15px;
+}
+#relogio a:hover {
+    text-decoration: none !important;
+}
+li {
+    color: red;
+    font-size: 0.8em;
+}
+#relogioVoltar a{
+    color: inherit;
+}
+#relogioVoltar i{
+    padding: 3px;
+}
+
+#relogioVoltar a:hover {
+    text-decoration: none !important;
+}
+
+
+/*css para o arquivo confirmar marcacao*/
+#userName p {
+    color: inherit;
+    color: black;
+    margin: 0 auto;
+    font-size: 1em;
+}
+#confirmarMarcacao{
+    width: 90%;
+}
+
+#btnVoltar{
+    background-color: red;
+    border-color: red;
+}
+#userName{
+    font-size: 1.3em;
+}
+#cabecalho{
+    display: inline;
+    background-color: black;
+}
+
+/*css para o file visualizar marcacoes*/
+
+#filtros {
+    text-align: left;
+
+}
+#visualizarMarcacoes{
+    display: block;
+    width: 200px;
+}
+#visualizarMarcacoes input, select {
+     border: 1px solid black;
+     height: 30px;
+     padding: 5px;
+     margin-bottom: 10px;
+     width: 180px;
+}
+#visualizarMarcacoes button {
+    width: 80px;
+    height: 40px;
+    margin-left: 50px;
+    margin-top: 10px;
+
+}
+#visualizarMarcacoes form {
+    margin-top: 10px;
+}
+
+
+#visualizarMarcacoes button {
+    width: 80px;
+     height: 40px;
+
+}
+#tabela tr{
+    height: 30px;
+}
+#cabecalhoTabela {
+    display: none;
+}
+
+/* Desktop grande */
+@media (min-width: 1024px) {
+    /* estilos aqui */
+    form{
+        width: 50%;
+    }
+
+    label{
+        color: black;
+        align: left;
+        font-size: 1.2em;
+    }
+    /*css para o file visualizar marcacoes*/
+    #visualizarMarcacoes{
+        display: flex;
+        width: 200px;
+    }
+    #visualizarMarcacoes button {
+        width: 80px;
+        height: 40px;
+
+    }
+    #tabela{
+        float: right;
+        height: 500px;
+        margin: 0 auto;
+    }
+
+    #tabela th{
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+    #tabela tr{
+        height: 30px;
+    }
+}
+/*css especifico para ponto manual*/
+#marcacaoManual{
+  margin: 0 auto;
+}
+#marcacaoManual p{
+   text-align: left;
+   color: black;
+}
+#marcacaoManual input{
+     border: 1px solid black;
+     height: 30px;
+     padding: 5px;
+     margin-bottom: 10px;
+     width: 162px;
+}
+
+#marcacaoManual button{
+    text-align: center;
+}
+#butoes-ponto-manual{
+   text-align: center;
+}
+#dataMarcacao{
+    margin-left: 25px;
+}
+
+#exportar-excel a{
+    color: black;
+    text-decoration: none;
+}
+#exportar-excel{
+    margin: 0 auto;
+    margin-bottom: 10px;
+}

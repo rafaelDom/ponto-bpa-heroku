@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confirmar Marcação</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+        <div class="logOut">
+            <a href="marcarPonto"><i class="fa fa-home fa-2x"></i></a>
+         {{ user.get_username }}   <a href="/accounts/logout">Log Out</a>
+        </div>
+    <h1>Confirmar Marcação de Ponto</h1>
+    <form action="marcacaoRealizada" method="post" id="confirmarMarcacao">
+        {% csrf_token %}
+        {{ form }}
+        <div id="userName">
+            Usuário: {{ request.user }}
+            <br>
+            Data e Hora: {{ dataHoraAtual }}
+        </div>
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit">Confirmar</button>
+        <a href="marcarPonto"><button type="button" id="btnVoltar">Voltar</button></a>
+    </form>
+</body>
+</html>
