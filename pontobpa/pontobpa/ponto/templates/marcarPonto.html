@@ -20,9 +20,11 @@
             <p>Marcar Ponto Auto.</p>
             <a href="confirmarMarcacao"><i class="fas fa-clock fa-3x"></i></a>
             <br>
+            {% if user.get_username == "bpa" %}
             <p>Marcar Ponto Manual</p>
             <a href="pontoManual"><i class="fa fa-clipboard fa-3x"></i></a>
             <br>
+            {% endif %}
             <p>Visualizar Ponto</p>
             <a href="visualizarMarcacoes"><i class="fa fa-table fa-3x"></i></a>
              {% if user.get_username == "bpa" %}

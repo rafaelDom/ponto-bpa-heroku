@@ -99,23 +99,35 @@ def visualizarMarcacoes(request):
 
 @login_required
 def pontoManual(request):
-    return render(request, 'pontoManual.html')
+    userName = request.user.username
+    if (userName == "bpa"):
+        contexto = {
+            'meu_form': MeuForm()
+        }
+    return render(request, 'pontoManual.html', contexto)
 
 
 @login_required
 def marcacaoManual(request):
+    userName = request.user.username
+    if (userName == "bpa"):
+        contexto = {
+            'meu_form': MeuForm()
+        }
     horarioMarcacao = ""
     dataMarcacao = ""
     marcacao = Marcacao()
     marcacao.nome_usuario = request.user
-    marcacao.id_usuario = request.user.id
+
     try:
         if request.method == 'POST':
+            idFuncionario = request.POST['Funcionarios']
+            marcacao.id_usuario = idFuncionario
             horarioMarcacao = request.POST['horarioMarcacao']
             dataMarcacao = request.POST['dataMarcacao']
 
-            if (horarioMarcacao == "" or dataMarcacao == ""):
-                return render(request, 'pontoManual.html')
+            if (horarioMarcacao == "" or dataMarcacao == "" or idFuncionario == ""):
+                return render(request, 'pontoManual.html', contexto)
         marcacao.data_marcacao = dataMarcacao + " " + horarioMarcacao
         marcacao.save()
     except:

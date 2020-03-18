@@ -18,6 +18,7 @@
         <h1>Ponto Manual</h1>
         <form id="marcacaoManual" action="marcacaoManual" method="post">
             {% csrf_token %}
+            {{ meu_form }}
             Data:
             <input id="dataMarcacao" name="dataMarcacao" type="date">
             <br>

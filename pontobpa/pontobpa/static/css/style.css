@@ -27,7 +27,9 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-
+label{
+    color: black;
+}
 body{
     padding: 10% 15%;
     color: black;
@@ -97,15 +99,16 @@ form p a {
 }
 
 form button {
-    width: 110px;
+    width: 90px;
     margin: 0 auto;
     height: 55px;
-    margin-top: 50px;
-    background-color:black;
+    margin-top: 30px;
+    background-color: black;
     color: white;
     border-radius: 30px;
     border: 1px solid black;
-     font-size: 0.7em;
+    font-size: 0.7em;
+}
 
 
 }
@@ -253,7 +256,13 @@ li {
 }
 /*css especifico para ponto manual*/
 #marcacaoManual{
-  margin: 0 auto;
+     margin: 0 auto;
+    /* border: 1px solid black; */
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+    text-align: left;
 }
 #marcacaoManual p{
    text-align: left;
@@ -272,9 +281,6 @@ li {
 }
 #butoes-ponto-manual{
    text-align: center;
-}
-#dataMarcacao{
-    margin-left: 25px;
 }
 
 #exportar-excel a{

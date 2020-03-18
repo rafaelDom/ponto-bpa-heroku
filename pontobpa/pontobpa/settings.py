@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'pontobpa.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "pontobpa\\pontobpa\\templates")],
+        'DIRS': [os.path.join(BASE_DIR, "pontobpa/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,10 +83,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'd6l3ah7c7dhb2v'),
-        'USER': os.environ.get('DB_USER', 'iaaxreratpxgnt'),
-        'PASSWORD': os.environ.get('DB_PASS', '0c0774aa9f82a6a9687a01769525b6628a976cc7709af76d22de26af8fc34b54'),
-        'HOST': 'ec2-18-235-20-228.compute-1.amazonaws.com',
+        'NAME': os.environ.get('DB_NAME', 'dbcfjarvjs4r2p'),
+        'USER': os.environ.get('DB_USER', 'lxrvribudknmtb'),
+        'PASSWORD': os.environ.get('DB_PASS', '582d3386c23c0c640e1fb796b38a61a97166393b13889b705257e6d65d40d7c8'),
+        'HOST': 'ec2-52-200-119-0.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
