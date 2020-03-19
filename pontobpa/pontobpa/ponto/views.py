@@ -122,6 +122,7 @@ def marcacaoManual(request):
     try:
         if request.method == 'POST':
             idFuncionario = request.POST['Funcionarios']
+            print("Id funcionario .................. ", idFuncionario)
             marcacao.id_usuario = idFuncionario
             horarioMarcacao = request.POST['horarioMarcacao']
             dataMarcacao = request.POST['dataMarcacao']
@@ -197,41 +198,47 @@ def filtro_export_xls(request):
 
 
 
-            marcacoes = Marcacao.objects.filter(data_marcacao__gte=dataInicio,
-                                                data_marcacao__lte=dataFimDate).order_by('nome_usuario')
 
-            marcacoesAux = marcacoes
+            funcionarios = User.objects.all()
 
-            marcacoesDia = MarcacoesPorDia()
+            sizeFuncionarios = len(funcionarios)
+            cont = 0
+            while(cont <= sizeFuncionarios ):
 
-            i = 0
-            x = 1
-            sizeLista = len(marcacoes)
+                marcacoes = Marcacao.objects.filter(Q(id_usuario=funcionarios[cont].id), data_marcacao__gte=dataInicio,
+                                                    data_marcacao__lte=dataFimDate)
 
-            while i < len(marcacoes):
-                dataStr = marcacoes[i].data_marcacao.strftime('%d/%m/%Y')
-                nomeFuncionario =  marcacoes[i].nome_usuario
-                if (x < sizeLista):
-                    dataAuxStr = marcacoes[x].data_marcacao.strftime('%d/%m/%Y')
-                else:
-                    dataAuxStr = ""
-                horaStr = marcacoes[i].data_marcacao.strftime('%H:%M')
+                marcacoesAux = marcacoes
 
-                if (dataStr != ""):
-                    if (dataStr == dataAuxStr):
-                        marcacoesDia.marcacoes += (horaStr,)
-                        i = i + 1
-                        x = x + 1
+                marcacoesDia = MarcacoesPorDia()
+
+                i = 0
+                x = 1
+                sizeLista = len(marcacoes)
+                while i < len(marcacoes):
+                    nomeFuncionario = funcionarios[cont].username
+                    dataStr = marcacoes[i].data_marcacao.strftime('%d/%m/%Y')
+                    if (x < sizeLista):
+                        dataAuxStr = marcacoes[x].data_marcacao.strftime('%d/%m/%Y')
                     else:
-                        marcacoesDia.marcacoes += (horaStr,)
-                        marcacoesDia.dia_marcacoes = dataStr
-                        marcacoesDia.nome_funcionario = nomeFuncionario
-                        cartaoPontoExcel.append(marcacoesDia)
-                        marcacoesDia = MarcacoesPorDia()
-                        i = i + 1
-                        x = x + 1
+                        dataAuxStr = ""
+                    horaStr = marcacoes[i].data_marcacao.strftime('%H:%M')
 
-
+                    if (dataStr != ""):
+                        if (dataStr == dataAuxStr):
+                            marcacoesDia.marcacoes += (horaStr,)
+                            i = i + 1
+                            x = x + 1
+                        else:
+                            marcacoesDia.nome_funcionario = nomeFuncionario
+                            marcacoesDia.marcacoes += (horaStr,)
+                            marcacoesDia.dia_marcacoes = dataStr
+                            cartaoPontoExcel.append(marcacoesDia)
+                            marcacoesDia = MarcacoesPorDia()
+                            i = i + 1
+                            x = x + 1
+                cont = cont + 1
         except:
             pass
+
     return export_xls(request, cartaoPontoExcel, dataInicio, dataFim)
